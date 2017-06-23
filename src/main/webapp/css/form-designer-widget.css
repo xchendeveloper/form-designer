@@ -1,0 +1,25 @@
+
+.form-item-wrapper{
+    padding: 2px;
+}
+
+.form-item-selected {
+    border:1px dotted #1e90ff;
+}
+
+.form-item{
+    width: 80px;
+    height: 20px;
+}
+
+.line-horizontal{
+    width: 100px;
+    height: 1px;
+    background: #000000;
+}
+
+.line-vertical{
+    width: 1px;
+    height: 100px;
+    background: #000000;
+}

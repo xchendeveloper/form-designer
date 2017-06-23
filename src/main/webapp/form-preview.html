@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link type="text/css" rel="stylesheet" href="css/base.css">
+    <link type="text/css" rel="stylesheet" href="css/form-designer-framework.css">
+    <link type="text/css" rel="stylesheet" href="css/form-designer-widget.css">
+    <script type="text/javascript" src="lib/jquery-ui-1.12.1/external/jquery/jquery.js"></script>
+</head>
+<body style="background: #ccc;">
+<div id="page">
+
+</div>
+</body>
+</html>
+<script>
+    var html = opener.document.getElementById("page").innerHTML;
+    $('#page').append(html);
+    $('body').click(function(){
+       console.log($('body').html());
+    });
+</script>
+<style>
+    #page #page-container {
+        border: none;
+    }
+
+    .form-item-selected {
+        border: none;
+    }
+
+
+</style>

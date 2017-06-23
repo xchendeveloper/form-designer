@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>H5 表单设计器</title>
+</head>
+<link type="text/css" rel="stylesheet" href="lib/jquery-ui-1.12.1/jquery-ui.css">
+<link type="text/css" rel="stylesheet" href="lib/layui-1.0.9/css/layui.css">
+
+<link type="text/css" rel="stylesheet" href="lib/jquery-page-line-1.0/css/jquery.page.line.1.0.css">
+<link type="text/css" rel="stylesheet" href="css/base.css">
+<link type="text/css" rel="stylesheet" href="css/form-designer-framework.css">
+<link type="text/css" rel="stylesheet" href="css/form-designer-widget.css">
+
+<script type="text/javascript" src="lib/html5.min.js"></script>
+<script type="text/javascript" src="lib/jquery-ui-1.12.1/external/jquery/jquery.js"></script>
+<script type="text/javascript" src="lib/jquery-ui-1.12.1/jquery-ui.js"></script>
+<script type="text/javascript" src="lib/layui-1.0.9/layui.js"></script>
+<script type="text/javascript" src="lib/jquery-page-line-1.0/js/jquery.page.line.1.0.js"></script>
+
+<script type="text/javascript" src="designer/designer.js"></script>
+<script type="text/javascript" src="designer/designer.util.js"></script>
+<script type="text/javascript" src="designer/designer.database.js"></script>
+<script type="text/javascript" src="designer/designer.client.js"></script>
+
+<!-- widgets begin -->
+
+<script type="text/javascript" src="designer/widgets/widget.js"></script>
+<script type="text/javascript" src="designer/widgets/common/label.js"></script>
+<script type="text/javascript" src="designer/widgets/common/input.js"></script>
+<script type="text/javascript" src="designer/widgets/common/date.js"></script>
+<script type="text/javascript" src="designer/widgets/common/datetime.js"></script>
+<script type="text/javascript" src="designer/widgets/common/select.js"></script>
+<script type="text/javascript" src="designer/widgets/common/textarea.js"></script>
+<script type="text/javascript" src="designer/widgets/common/line-horizontal.js"></script>
+<script type="text/javascript" src="designer/widgets/common/line-vertical.js"></script>
+
+<!-- widgets end -->
+
+<script type="text/javascript">
+
+    $(function () {
+        var Client = new Designer.client.Client();
+        $.pageLine({parentDOM: '#page'});
+    });
+
+</script>
+
+<body>
+<div class="framework-top">
+    <div class="fl ml20">
+        <span>H5 流程表单设计器</span>
+    </div>
+    <div class="fr mr10">
+        <button class="btn-default" id="preview">预览</button>
+        <button class="btn-default" id="save">保存模板</button>
+        <button class="btn-default" id="import">导入模板</button>
+    </div>
+</div>
+
+
+<div class="framework-left fl text-no-selected auto-scroll-y">
+    <div id="widget-common" class="panel_container">
+        <div class="panel_title">
+            <div class="ico ico_accordion"></div>
+            普通部件
+        </div>
+        <div class="panel_content widget-list">
+            <div class="widget-item" id="Designer.widgets.Label">标签 · label</div>
+            <div class="widget-item" id="Designer.widgets.Input">输入框 · input</div>
+            <div class="widget-item" id="Designer.widgets.Select">选择框 · select</div>
+            <div class="widget-item" id="Designer.widgets.Textarea">文本域 · textarea</div>
+            <div class="widget-item" id="Designer.widgets.Date">日期 · date</div>
+            <div class="widget-item" id="Designer.widgets.Datetime">日期时间 · datetime</div>
+            <div class="widget-item" id="Designer.widgets.LineHorizontal">横线 · line-horizontal</div>
+            <div class="widget-item" id="Designer.widgets.LineVertical">竖线 · line-vertical</div>
+        </div>
+    </div>
+
+    <div id="widget-shouwen" class="panel_container panel_collapsed">
+        <div class="panel_title">
+            <div class="ico ico_accordion"></div>
+            收文部件
+        </div>
+        <div class="panel_content widget-list">
+            <div class="widget-item"
+                 data-defaultdata="{type:'label',name:'label',dispName:'输入显示名',width:1,height:1,beginRow:1,beginCol:1}">
+                标签(label)
+            </div>
+            <div class="widget-item"
+                 data-defaultdata="{type:'text',name:'qianfa',dispName:'签发',width:1,height:1,beginRow:1,beginCol:1}">
+                签发(input)
+            </div>
+            <div class="widget-item"
+                 data-defaultdata="{type:'text',name:'huiqian',dispName:'会签',width:1,height:1,beginRow:1,beginCol:1}">
+                会签(input)
+            </div>
+            <div class="widget-item"
+                 data-defaultdata="{type:'select',name:'mijidengji',dispName:'',width:1,height:1,beginRow:1,beginCol:1}">
+                密级等级(select)
+            </div>
+            <div class="widget-item"
+                 data-defaultdata="{type:'text',name:'shiyou',dispName:'是由',width:1,height:1,beginRow:1,beginCol:1}">
+                事由(input)
+            </div>
+            <div class="widget-item"
+                 data-defaultdata="{type:'text',name:'fuhe',dispName:'复核',width:1,height:1,beginRow:1,beginCol:1}">
+                复核(input)
+            </div>
+            <div class="widget-item"
+                 data-defaultdata="{type:'text',name:'nigao',dispName:'拟稿',width:1,height:1,beginRow:1,beginCol:1}">拟稿
+            </div>
+            <div class="widget-item"
+                 data-defaultdata="{type:'text',name:'hegao',dispName:'核稿',width:1,height:1,beginRow:1,beginCol:1}">核稿
+            </div>
+            <div class="widget-item"
+                 data-defaultdata="{type:'text',name:'shenhe',dispName:'审核',width:1,height:1,beginRow:1,beginCol:1}">审核
+            </div>
+            <div class="widget-item"
+                 data-defaultdata="{type:'text',name:'zhusong',dispName:'主送',width:1,height:1,beginRow:1,beginCol:1}">主送
+            </div>
+            <div class="widget-item"
+                 data-defaultdata="{type:'text',name:'chaosong',dispName:'抄送',width:1,height:1,beginRow:1,beginCol:1}">
+                抄送
+            </div>
+            <div class="widget-item"
+                 data-defaultdata="{type:'text',name:'zihao',dispName:'字号',width:1,height:1,beginRow:1,beginCol:1}">字号
+            </div>
+            <div class="widget-item"
+                 data-defaultdata="{type:'text',name:'fujian',dispName:'附件',width:1,height:1,beginRow:1,beginCol:1}">附件
+            </div>
+        </div>
+
+    </div>
+
+    <div id="widget-fawen" class="panel_container panel_collapsed">
+        <div class="panel_title">
+            <div class="ico ico_accordion"></div>
+            发文部件
+        </div>
+
+        <div class="panel_content widget-list">
+            <div class="widget-item"
+                 data-defaultdata="{type:'label',name:'label',dispName:'输入显示名',width:1,height:1,beginRow:1,beginCol:1}">
+                标签(label)
+            </div>
+            <div class="widget-item"
+                 data-defaultdata="{type:'text',name:'qianfa',dispName:'签发',width:1,height:1,beginRow:1,beginCol:1}">
+                签发(input)
+            </div>
+            <div class="widget-item"
+                 data-defaultdata="{type:'text',name:'huiqian',dispName:'会签',width:1,height:1,beginRow:1,beginCol:1}">
+                会签(input)
+            </div>
+            <div class="widget-item"
+                 data-defaultdata="{type:'select',name:'mijidengji',dispName:'',width:1,height:1,beginRow:1,beginCol:1}">
+                密级等级(select)
+            </div>
+            <div class="widget-item"
+                 data-defaultdata="{type:'text',name:'shiyou',dispName:'是由',width:1,height:1,beginRow:1,beginCol:1}">
+                事由(input)
+            </div>
+            <div class="widget-item"
+                 data-defaultdata="{type:'text',name:'fuhe',dispName:'复核',width:1,height:1,beginRow:1,beginCol:1}">
+                复核(input)
+            </div>
+            <div class="widget-item"
+                 data-defaultdata="{type:'text',name:'nigao',dispName:'拟稿',width:1,height:1,beginRow:1,beginCol:1}">拟稿
+            </div>
+            <div class="widget-item"
+                 data-defaultdata="{type:'text',name:'hegao',dispName:'核稿',width:1,height:1,beginRow:1,beginCol:1}">核稿
+            </div>
+            <div class="widget-item"
+                 data-defaultdata="{type:'text',name:'shenhe',dispName:'审核',width:1,height:1,beginRow:1,beginCol:1}">审核
+            </div>
+            <div class="widget-item"
+                 data-defaultdata="{type:'text',name:'zhusong',dispName:'主送',width:1,height:1,beginRow:1,beginCol:1}">主送
+            </div>
+            <div class="widget-item"
+                 data-defaultdata="{type:'text',name:'chaosong',dispName:'抄送',width:1,height:1,beginRow:1,beginCol:1}">
+                抄送
+            </div>
+            <div class="widget-item"
+                 data-defaultdata="{type:'text',name:'zihao',dispName:'字号',width:1,height:1,beginRow:1,beginCol:1}">字号
+            </div>
+            <div class="widget-item"
+                 data-defaultdata="{type:'text',name:'fujian',dispName:'附件',width:1,height:1,beginRow:1,beginCol:1}">附件
+            </div>
+        </div>
+
+    </div>
+
+    <div id="widget-qingjia" class="panel_container panel_collapsed">
+        <div class="panel_title">
+            <div class="ico ico_accordion"></div>
+            请假部件
+        </div>
+        <div class="panel_content widget-list">
+            <div class="widget-item"
+                 data-defaultdata="{type:'label',name:'label',dispName:'输入显示名',width:1,height:1,beginRow:1,beginCol:1}">
+                标签(label)
+            </div>
+            <div class="widget-item"
+                 data-defaultdata="{type:'text',name:'qianfa',dispName:'签发',width:1,height:1,beginRow:1,beginCol:1}">
+                签发(input)
+            </div>
+            <div class="widget-item"
+                 data-defaultdata="{type:'text',name:'huiqian',dispName:'会签',width:1,height:1,beginRow:1,beginCol:1}">
+                会签(input)
+            </div>
+            <div class="widget-item"
+                 data-defaultdata="{type:'select',name:'mijidengji',dispName:'',width:1,height:1,beginRow:1,beginCol:1}">
+                密级等级(select)
+            </div>
+            <div class="widget-item"
+                 data-defaultdata="{type:'text',name:'shiyou',dispName:'是由',width:1,height:1,beginRow:1,beginCol:1}">
+                事由(input)
+            </div>
+            <div class="widget-item"
+                 data-defaultdata="{type:'text',name:'fuhe',dispName:'复核',width:1,height:1,beginRow:1,beginCol:1}">
+                复核(input)
+            </div>
+            <div class="widget-item"
+                 data-defaultdata="{type:'text',name:'nigao',dispName:'拟稿',width:1,height:1,beginRow:1,beginCol:1}">拟稿
+            </div>
+            <div class="widget-item"
+                 data-defaultdata="{type:'text',name:'hegao',dispName:'核稿',width:1,height:1,beginRow:1,beginCol:1}">核稿
+            </div>
+            <div class="widget-item"
+                 data-defaultdata="{type:'text',name:'shenhe',dispName:'审核',width:1,height:1,beginRow:1,beginCol:1}">审核
+            </div>
+            <div class="widget-item"
+                 data-defaultdata="{type:'text',name:'zhusong',dispName:'主送',width:1,height:1,beginRow:1,beginCol:1}">主送
+            </div>
+            <div class="widget-item"
+                 data-defaultdata="{type:'text',name:'chaosong',dispName:'抄送',width:1,height:1,beginRow:1,beginCol:1}">
+                抄送
+            </div>
+            <div class="widget-item"
+                 data-defaultdata="{type:'text',name:'zihao',dispName:'字号',width:1,height:1,beginRow:1,beginCol:1}">字号
+            </div>
+            <div class="widget-item"
+                 data-defaultdata="{type:'text',name:'fujian',dispName:'附件',width:1,height:1,beginRow:1,beginCol:1}">附件
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="framework-middle fl">
+    <!--表单内容区域-->
+    <div id="page">
+        <div id="page-container">
+
+        </div>
+    </div>
+
+</div>
+
+<div class="framework-right fl">
+    <div class="tab-list">
+        <div class="tab tab_style active">样式属性</div>
+        <div class="tab tab_service">业务属性</div>
+    </div>
+
+    <div class="tab_style_content">
+
+        <div class="attr">
+            <div class="attr_header">位置</div>
+            <div class="attr_body">
+                <table>
+                    <tr>
+                        <td width="40%">顶部距离</td>
+                        <td width="60%" class="td-left-border"><input style="width: 100%" type="text" id="top" value=""></td>
+                    </tr>
+                    <tr>
+                        <td width="40%">左侧距离</td>
+                        <td width="60%" class="td-left-border"><input style="width: 100%" type="text" id="left" value=""></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="attr">
+            <div class="attr_header">样式</div>
+            <div class="attr_body">
+                <table>
+                    <tr>
+                        <td width="40%">宽度</td>
+                        <td width="60%" class="td-left-border"><input style="width: 100%" type="text" id="width" value=""></td>
+                    </tr>
+                    <tr>
+                        <td width="40%">高度</td>
+                        <td width="60%" class="td-left-border"><input style="width: 100%" type="text" id="height" value=""></td>
+                    </tr>
+
+                    <tr>
+                        <td width="40%">字体大小</td>
+                        <td width="60%" class="td-left-border"><input style="width: 100%" type="text" id="fontSize" value=""></td>
+                    </tr>
+                    <tr>
+                        <td width="40%">字体颜色</td>
+                        <td width="60%" class="td-left-border"><input type="color" id="color" value=""></td>
+                    </tr>
+
+                    <tr>
+                        <td width="40%">文字粗细</td>
+                        <td width="60%" class="td-left-border" style="padding: 0;">
+                            <select id="fontWeight" style="width: 100%;border:none;">
+                                <option value="100">100</option>
+                                <option value="200">200</option>
+                                <option value="300">300</option>
+                                <option value="400">400</option>
+                                <option value="500">500</option>
+                                <option value="600">600</option>
+                                <option value="700">700</option>
+                                <option value="800">800</option>
+                                <option value="900">900</option>
+                            </select>
+                        </td>
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+
+    </div>
+    <div class="tab_service_content no-visible">
+        <div class="attr">
+            <div class="attr_header">表单属性</div>
+            <div class="attr_body">
+                <table>
+                    <tr>
+                        <td width="40%">显示名称</td>
+                        <td width="60%" class="td-left-border"><input style="width: 100%" type="text" id="displayName" value=""></td>
+                    </tr>
+                    <tr>
+                        <td width="40%">名称(name)</td>
+                        <td width="60%" class="td-left-border"><input style="width: 100%" type="text" id="name" value=""></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

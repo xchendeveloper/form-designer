@@ -1,0 +1,169 @@
+/*
+   外层框架 开始
+*/
+
+/*定义scroll样式*/
+::-webkit-scrollbar {
+    width: 6px;
+    height: 1px;
+    background-color: #C9C9C9;
+}
+
+/*定义滚动条轨道 内阴影+圆角*/
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    background-color: #FFF;
+}
+
+/*定义滑块 内阴影+圆角*/
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    background-color: #C9C9C9;
+}
+
+.framework-top {
+    position: fixed;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    background: #F3F3F3;
+    border-bottom: 1px solid #aaaaaa;
+    z-index: 999;
+    font-size: 20px;
+    color:#333;
+}
+
+.framework-left {
+    width: 14%;
+    margin: 41px 0 0 -2px;
+    border-right: 1px solid #A2A2A2;
+}
+
+.framework-middle {
+    width: 70%;
+    margin-top: 41px;
+    border-right: 1px solid #A2A2A2;
+    background: #D9DADE;
+    overflow-y: scroll;
+}
+
+.framework-right {
+    width: 16%;
+    margin-top: 41px;
+}
+
+.panel_container{
+    border-bottom: 1px solid #CBCCCC;
+    margin-top: 1px;
+}
+
+.panel_collapsed .panel_title{
+    box-shadow: none;
+    text-shadow: none;
+    border-bottom: 0px;
+}
+
+.panel_collapsed .panel_content{
+    display:none;
+}
+
+.panel_title {
+    position: relative;
+    margin: 0px;
+    background-color: #F3F3F3;
+    height: 30px;
+    line-height: 30px;
+    font-size: 12px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding: 0 2px 0 19px;
+    border-bottom: #cccccc solid 1px;
+    cursor: default;
+    -webkit-box-shadow: 0px 1px 1px rgba(0,0,0,.1);
+    -moz-box-shadow: 0px 1px 1px rgba(0,0,0,.1);
+    -ms-box-shadow: 0px 1px 1px rgba(0,0,0,.1);
+    box-shadow: 0px 1px 1px rgba(0,0,0,.1);
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.33);
+}
+
+.ico {
+    background: url('../images/sprite.png') no-repeat;
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    left: 5px;
+    top: 11px;
+}
+
+.ico_accordion {
+    width: 8px;
+    height: 8px;
+    background-position: -40px -47px;
+}
+
+.panel_collapsed .ico_accordion{
+    width: 8px;
+    height: 8px;
+    background-position: -51px -46px;
+}
+
+.widget-list .widget-item {
+    padding: 5px 20px;
+    margin: 6px;
+    border: 1px solid #CCCCCC;
+}
+
+#page {
+    position: relative;
+    width: 640px;
+    height: 800px;
+    padding: 30px 80px;
+    margin: 30px auto;
+    border: 1px solid #999;
+    background: #fff;
+}
+
+#page #page-container{
+    width: 100%;
+    height: 100%;
+    border: 1px dashed #DDDCDC;
+}
+
+.attr .attr_header{
+    background: #F3F3F3;
+    text-align: center;
+    box-shadow: 0 -1px #ddd;
+}
+
+.attr .attr_body table tr{
+    border: 1px solid #ddd;
+}
+
+.attr .attr_body table tr td {
+    text-align: center;
+    padding: 0 10px;
+}
+
+.attr .attr_body table tr td input{
+    border: none;
+}
+
+.td-left-border{
+    border-left: 1px solid #ddd; ;
+}
+
+
+/*
+外层框架 结束
+*/
+
+/*
+    表单内部样式 开始
+*/
+
+/*
+    表单内部样式 结束
+*/
